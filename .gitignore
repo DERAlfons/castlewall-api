@@ -2,4 +2,4 @@
 /node_modules
 
 # contains secret passwords!
-/dbConfig.js
+/db-config.js
