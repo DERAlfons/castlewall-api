@@ -1,27 +1,25 @@
-const express = require('express')
-const cors = require('cors')
+const express = require('express');
+const cors = require('cors');
 
-const sqltest = require('./sqltest')
-const read = require('./puzzle-read.js')
-const check = require('./check.js')
+const read = require('./puzzle-read.js');
+const add = require('./puzzle-add.js');
+const checkStatus = require('./check-status.js');
 
-const { deserialize } = require('./puzzle-serializer.js')
-
-const server = express()
+const server = express();
 
 var corsOptions = {
 	origin: '*',
 	optionSuccessStatus: 200
-}
+};
 
-server.use(cors(corsOptions))
-server.use(express.json())
+server.use(cors(corsOptions));
+server.use(express.json());
 
-server.post('/sqltest', sqltest)
-server.get('/read', read)
-server.get('/read/:id', read)
-server.get('/check/:id', check)
+server.get('/read', read);
+server.get('/read/:id', read);
+server.post('/add', add);
+server.get('/checkstatus/:id', checkStatus);
 
 server.listen(8000, 'localhost', () => {
 	console.log('Server started!')
-})
+});

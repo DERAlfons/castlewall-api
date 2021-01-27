@@ -1,7 +1,7 @@
 const mariadb = require('mariadb');
 
-const { deserialize } = require('./puzzle-serializer');
-const dbConfig = require('./dbConfig');
+const { deserialize } = require('./puzzle-serializer.js');
+const dbConfig = require('./db-config.js');
 
 module.exports = async function read(req, res) {
     let result;

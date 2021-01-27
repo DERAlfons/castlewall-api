@@ -1,4 +1,4 @@
-// Move or copy this file to dbConfig.js and fill in the values appropriately!
+// Move or copy this file to db-config.js and fill in the values appropriately!
 module.exports = {
     dbHost: 'localhost',
     dbName: 'castlewall',

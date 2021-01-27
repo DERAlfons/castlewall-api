@@ -1,6 +1,6 @@
 const mariadb = require('mariadb');
 
-const dbConfig = require('./dbConfig');
+const dbConfig = require('./db-config.js');
 
 module.exports = async function check(req, res) {
     let result;

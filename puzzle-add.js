@@ -2,8 +2,8 @@ const util = require('util');
 const execFile = util.promisify(require('child_process').execFile);
 const mariadb = require('mariadb');
 
-const { serialize } = require('./puzzle-serializer');
-const dbConfig = require('./dbConfig');
+const { serialize } = require('./puzzle-serializer.js');
+const dbConfig = require('./db-config.js');
 
 module.exports = async function sqltest(req, res) {
     let puzzle = req.body.puzzle;
@@ -24,7 +24,7 @@ module.exports = async function sqltest(req, res) {
         puzzle.id = sqlres.insertId;
         res.send(puzzle);
 
-        const { stdout } = await execFile('./castlewall.py', [JSON.stringify(puzzle)]);
+        const { stdout } = await execFile('./solvability-prover.py', [JSON.stringify(puzzle)]);
         const checkResult = JSON.parse(stdout);
 
         if (checkResult.solvable == 'unique' && accessCode == dbConfig.accessCode) {
