@@ -11,4 +11,5 @@ API for castlewall web app
 ## Installation
 
 * `npm install`
+* create `dbConfig.js` (see `dbConfig.example.js`)
 * Run with `node puzzle-api.js`
