@@ -3,7 +3,7 @@ const cors = require('cors');
 
 const read = require('./puzzle-read.js');
 const add = require('./puzzle-add.js');
-const checkStatus = require('./check-status.js');
+const checkStatus = require('./puzzle-check-status.js');
 
 const server = express();
 
