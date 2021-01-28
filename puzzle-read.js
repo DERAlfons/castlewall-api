@@ -18,7 +18,7 @@ module.exports = async function read(req, res) {
 
         if (req.params.id) {
             const id = +req.params.id;
-            const rows = await conn.query(`SELECT * FROM puzzles WHERE ID = ${id}`);
+            const rows = await conn.query('SELECT * FROM puzzles WHERE ID = ?', [id]);
             let p = rows[0];
             let puzzle = deserialize(p.SerializedRepresentation);
             puzzle.title = p.Title;

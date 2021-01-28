@@ -31,7 +31,7 @@ module.exports = async function sqltest(req, res) {
             sqlres = await conn.query('INSERT INTO puzzles (Title, SerializedRepresentation) VALUES (?, ?)', [puzzle.title, serialize(puzzle)]);
         }
 
-        sqlres = await conn.query(`UPDATE puzzleChecks SET Status = '${checkResult.solvable}' WHERE ID = ${puzzle.id}`);
+        sqlres = await conn.query('UPDATE puzzleChecks SET Status = ? WHERE ID = ?', [checkResult.solvable, puzzle.id]);
 	}
     catch (err) {
 		throw err;

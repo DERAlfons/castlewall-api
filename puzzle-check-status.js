@@ -16,7 +16,7 @@ module.exports = async function check(req, res) {
         });
 
         const id = +req.params.id;
-        const rows = await conn.query(`SELECT * FROM puzzleChecks WHERE ID = ${id}`);
+        const rows = await conn.query('SELECT * FROM puzzleChecks WHERE ID = ?', [id]);
         result = rows[0].Status;
     }
     catch (err) {
